@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Now - Pojok Smart Coffee</title>
+    <link rel="stylesheet" href="order.css">
+</head>
+
+<body>
+
+<header class="order-header">
+    <div class="logo">
+        <span>☕</span>
+        Pojok Smart Coffee
+    </div>
+
+    <a href="home.html" class="back-home">← Home</a>
+</header>
+
+
+<main class="container">
+
+    <section class="order-title">
+        <p>POJOK SMART COFFEE</p>
+        <h1>Order Your Favorite Coffee</h1>
+        <span>Pilih minuman dan makanan favoritmu</span>
+    </section>
+
+
+    <!-- DAFTAR PRODUK -->
+    <section class="product-section">
+
+        <h2>Our Menu</h2>
+
+        <div class="product-grid">
+
+            <div class="product-card">
+                <div class="product-image">☕</div>
+
+                <div class="product-info">
+                    <h3>Kopi Gula Aren</h3>
+                    <p>Kopi espresso dengan susu dan gula aren.</p>
+
+                    <div class="product-bottom">
+                        <strong>Rp15.000</strong>
+
+                        <button onclick="addToCart('Kopi Gula Aren', 15000)">
+                            + Tambah
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="product-card">
+                <div class="product-image">☕</div>
+
+                <div class="product-info">
+                    <h3>Cappuccino</h3>
+                    <p>Espresso dengan susu dan foam yang lembut.</p>
+
+                    <div class="product-bottom">
+                        <strong>Rp18.000</strong>
+
+                        <button onclick="addToCart('Cappuccino', 18000)">
+                            + Tambah
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="product-card">
+                <div class="product-image">🥤</div>
+
+                <div class="product-info">
+                    <h3>Ice Latte</h3>
+                    <p>Perpaduan espresso dan susu dingin.</p>
+
+                    <div class="product-bottom">
+                        <strong>Rp17.000</strong>
+
+                        <button onclick="addToCart('Ice Latte', 17000)">
+                            + Tambah
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="product-card">
+                <div class="product-image">🍵</div>
+
+                <div class="product-info">
+                    <h3>Matcha Latte</h3>
+                    <p>Matcha premium dengan susu creamy.</p>
+
+                    <div class="product-bottom">
+                        <strong>Rp18.000</strong>
+
+                        <button onclick="addToCart('Matcha Latte', 18000)">
+                            + Tambah
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="product-card">
+                <div class="product-image">🍫</div>
+
+                <div class="product-info">
+                    <h3>Chocolate</h3>
+                    <p>Minuman cokelat creamy dan nikmat.</p>
+
+                    <div class="product-bottom">
+                        <strong>Rp16.000</strong>
+
+                        <button onclick="addToCart('Chocolate', 16000)">
+                            + Tambah
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="product-card">
+                <div class="product-image">🥐</div>
+
+                <div class="product-info">
+                    <h3>Croissant</h3>
+                    <p>Croissant renyah cocok untuk teman kopi.</p>
+
+                    <div class="product-bottom">
+                        <strong>Rp14.000</strong>
+
+                        <button onclick="addToCart('Croissant', 14000)">
+                            + Tambah
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- KERANJANG -->
+    <section class="cart-section">
+
+        <div class="cart-header">
+            <h2>🛒 Your Order</h2>
+
+            <span id="cart-count">0 item</span>
+        </div>
+
+        <div id="cart-items">
+
+            <div class="empty-cart">
+                <div>🛒</div>
+                <p>Keranjang masih kosong</p>
+                <small>Silakan pilih menu terlebih dahulu.</small>
+            </div>
+
+        </div>
+
+
+        <div class="cart-total">
+
+            <span>Total</span>
+
+            <strong id="cart-total">
+                Rp0
+            </strong>
+
+        </div>
+
+
+        <button class="checkout-button" onclick="showCheckout()">
+            Lanjut ke Checkout →
+        </button>
+
+    </section>
+
+
+    <!-- CHECKOUT -->
+    <section class="checkout-section" id="checkout">
+
+        <h2>Checkout</h2>
+
+        <p class="checkout-description">
+            Isi data berikut untuk menyelesaikan pesanan.
+        </p>
+
+
+        <form id="checkout-form">
+
+            <div class="form-group">
+
+                <label for="name">
+                    Nama Pemesan
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Masukkan nama"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="phone">
+                    Nomor HP
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="08xxxxxxxxxx"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="table">
+                    Nomor Meja
+                </label>
+
+                <select id="table" required>
+
+                    <option value="">
+                        Pilih meja
+                    </option>
+
+                    <option value="Meja 1">Meja 1</option>
+                    <option value="Meja 2">Meja 2</option>
+                    <option value="Meja 3">Meja 3</option>
+                    <option value="Meja 4">Meja 4</option>
+                    <option value="Meja 5">Meja 5</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="payment">
+                    Metode Pembayaran
+                </label>
+
+                <select id="payment" required>
+
+                    <option value="">
+                        Pilih pembayaran
+                    </option>
+
+                    <option value="Cash">
+                        Cash
+                    </option>
+
+                    <option value="QRIS">
+                        QRIS
+                    </option>
+
+                    <option value="Transfer Bank">
+                        Transfer Bank
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="notes">
+                    Catatan Pesanan
+                </label>
+
+                <textarea
+                    id="notes"
+                    rows="4"
+                    placeholder="Contoh: Tidak terlalu manis"
+                ></textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="confirm-button"
+            >
+                Konfirmasi Pesanan
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- PESANAN BERHASIL -->
+    <section
+        class="success-section"
+        id="success"
+    >
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <h2>Pesanan Berhasil!</h2>
+
+        <p>
+            Terima kasih telah memesan di
+            <strong>Pojok Smart Coffee</strong>.
+        </p>
+
+        <div class="order-number">
+
+            Nomor Pesanan
+
+            <strong id="order-number">
+                #PSC-0001
+            </strong>
+
+        </div>
+
+        <p>
+            Pesanan kamu sedang diproses.
+        </p>
+
+        <a href="home.html" class="home-button">
+            Kembali ke Home
+        </a>
+
+    </section>
+
+</main>
+
+
+<script src="order.js"></script>
+
+</body>
+</html>
